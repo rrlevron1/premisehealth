@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="angular.js"></script>
+    <script src="scripts.js"></script>
+
+    <style>
+        body {
+            line-height: 1;
+            margin: 50px;
+        }
+
+        header {
+            overflow: clear;
+            position: relative;
+        }
+
+        h2 {
+            font-family: 'PT Sans Narrow', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            text-align: center;
+        }
+
+        button {
+            position: absolute;
+            top: -4px;
+        }
+
+            button:first-child {
+                left: 0;
+            }
+
+            button:last-child {
+                right: 0;
+            }
+            span{
+                display:block;
+                
+            }
+        .calendardaybutton{
+            margin-top:10px;
+        }
+        ul{
+            list-style:none;
+            
+        }
+        li{
+            margin: 0;
+            padding: 0.2em;
+        }
+        table {
+            background: #fff;
+            border-collapse: collapse;
+            color: #222;
+            font-family: 'PT Sans', sans-serif;
+            font-size: 13px;
+            width: 80%;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            color: #444;
+            line-height: 20px;
+            text-align: center;
+            
+        }
+
+        tr:first-child td {
+            color: #222;
+            font-weight: 700;
+        }
+
+        .selected {
+            background: #f0951d;
+            border: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .5) inset;
+        }
+    </style>
+
+</head>
+
+
+<body ng-controller="myController as ctrl">
+
+    <h2>{{ greeting }}</h2>
+    <div>
+        
+        <table>
+            <tr>
+                <td>S</td>
+                <td>M</td>
+                <td>T</td>
+                <td>W</td>
+                <td>Th</td>
+                <td>F</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span>1</span>
+                    
+                    
+                </td>
+                <td><span>2</span>
+                
+                    
+                </td>
+                <td><span>3</span>
+                
+                    
+                
+                </td>
+                <td><span>4</span>
+
+                   
+                </td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>
+
+                    <span>7</span>
+
+                    <input type="checkbox" ng-model="checked">Add Duty Hours
+                    <div id="addHours" ng-show="checked">
+                        <input type="text" id="mondayHours" ng-model="mondayHours" class="glyphicon glyphicon-plus" />
+                        <input type="button" class="glyphicon glyphicon-plus" value="Add" ng-click="AddMondayHours(mondayHours)" />
+                    </div>
+
+                    <span> Total : {{ mondayHoursTotal}}</span>
+
+                </td>
+                <td>
+
+                    <span>8</span>
+
+                    <input type="checkbox" ng-model="checked">Add Duty Hours
+                    <div id="addHours" ng-show="checked">
+                        <input type="text" ng-model="tuesdayHours" class="glyphicon glyphicon-plus" />
+                        <input type="button" class="glyphicon glyphicon-plus" value="Add" ng-click="AddTuesdayHours(tuesdayHours)" />
+                    </div>
+
+                    <span> Total : {{ tuesdayHoursTotal}}</span>
+
+
+                </td>
+                <td>
+
+                    <span>9</span>
+
+                    <input type="checkbox" ng-model="checked">Add Duty Hours
+                    <div id="addHours" ng-show="checked">
+                        <input type="text" ng-model="wednesdayHours" class="glyphicon glyphicon-plus" />
+                        <input type="button" class="glyphicon glyphicon-plus" value="Add" ng-click="AddWednesdayHours(wednesdayHours)" />
+                    </div>
+
+                    <span> Total : {{ wednesdayHoursTotal}}</span>
+
+                </td>
+                <td>
+
+                    <span>10</span>
+
+                    <input type="checkbox" ng-model="checked">Add Duty Hours
+                    <div id="addHours" ng-show="checked">
+                        <input type="text" ng-model="thursdayHours" class="glyphicon glyphicon-plus" />
+                        <input type="button" class="glyphicon glyphicon-plus" value="Add" ng-click="AddThursdayHours(thursdayHours)" />
+                    </div>
+
+                    <span> Total : {{ thursdayHoursTotal}}</span>
+
+                </td>
+                <td>
+
+                    <span>11</span>
+
+                    <input type="checkbox" ng-model="checked">Add Duty Hours
+                    <div id="addHours" ng-show="checked">
+                        <input type="text" ng-model="fridayHours" class="glyphicon glyphicon-plus" />
+                        <input type="button" class="glyphicon glyphicon-plus" value="Add" ng-click="AddFridayHours(fridayHours)" />
+                    </div>
+
+                    <span> Total : {{ fridayHoursTotal}}</span>
+
+                </td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>
+
+                    <span>14</span>
+
+                    
+                </td>
+                <td>
+
+                    <span>15</span>
+
+                </td>
+                <td>
+
+                    <span>16</span>
+
+
+                </td>
+                <td class="selected">
+
+                    <span>17</span>
+
+                </td>
+                <td>
+
+                </td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>
+
+                    <span>21</span>
+
+                </td>
+                <td>
+
+                    <span>22</span>
+
+                </td>
+                <td>
+
+                    <span>23</span>
+
+                </td>
+                <td>
+
+                    <span>24</span>
+
+                </td>
+                <td>
+
+                    <span>25</span>
+
+                </td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>
+
+                    <span>28</span>
+
+                </td>
+                <td>
+
+                    <span>29</span>
+
+
+                </td>
+                <td>
+
+                    <span>30</span>
+
+                </td>
+                <td>
+
+                    <span>31</span>
+
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
