@@ -109,7 +109,7 @@
                 if (($scope.mondayHoursTotal > 0) && ($scope.tuesdayHoursTotal > 0) &&
                     ($scope.wednesdayHoursTotal > 0) && ($scope.thursdayHoursTotal > 0) &&
                     ($scope.fridayHoursTotal > 0)) {
-                    alert('Be  sure to take a 24 day off this weekend to comply with ACGME regulations!');
+                    alert('Be  sure to take a 24 hour day off this weekend to comply with ACGME regulations!');
                 }
 
             };
